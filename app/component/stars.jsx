@@ -2,11 +2,6 @@ import React, { useEffect, useState } from 'react';
 
 function StarRating({ difficulty }) {
     
-    // const [star,setStar]=useState(1)
-
-    // setStar(difficulty==='hard'?5:difficulty==='medium'?3:difficulty==='easy'?1:0)
-
-
     const [hoveredStar, setHoveredStar] = useState(0);
 
   const handleMouseEnter = (star) => {
@@ -42,7 +37,7 @@ function StarRating({ difficulty }) {
         stars.push(
           <span
             key={i}
-            className={`cursor-pointer ${i <= hoveredStar ? 'text-yellow-400' : 'text-white'}`}
+            className={`cursor-pointer ${i <= hoveredStar ? 'text-yellow-400' : 'text-yellow-400'}`}
             onMouseEnter={() => handleMouseEnter(i)}
             onMouseLeave={handleMouseLeave}
             onClick={() => handleClick(i)}

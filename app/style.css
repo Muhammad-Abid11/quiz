@@ -1,0 +1,28 @@
+ .cont{
+    min-width: 50%;
+    max-width: 60%;
+    margin: auto;
+}
+.prog{
+    height: 40px;
+    top: 50px;
+}
+.progres1{
+ position: relative;
+ z-index: 1;
+
+}
+.progres2{
+ position: relative;
+ top: -34px;
+}
+.progres3{
+ position: relative;
+ top: -68px;
+ z-index: 3;
+
+} 
+.end{
+    min-width: 400px;
+    text-align: center;
+}
