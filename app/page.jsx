@@ -33,16 +33,17 @@ export default function Home() {
     setSelectAns("");
 
     setCurrentIndex(currentIndex + 1);
-    const arr = [
-      question[currentIndex + 1]?.correct_answer,
-      ...question[currentIndex + 1]?.incorrect_answers,
-    ];
-    const shuffledOptions = shuffle(arr);
-    setQuestionOptions(shuffledOptions);
-
-    const difficulty = question[currentIndex + 1].difficulty;
-    const stars = difficulty === "easy" ? 1 : difficulty === "hard" ? 5 : 3;
-    setStars(stars);
+    if (currentIndex !== question.length - 1) {
+      const arr = [
+        question[currentIndex + 1]?.correct_answer,
+        ...question[currentIndex + 1]?.incorrect_answers,
+      ];
+      const shuffledOptions = shuffle(arr);
+      setQuestionOptions(shuffledOptions);
+      const difficulty = question[currentIndex + 1].difficulty;
+      const stars = difficulty === "easy" ? 1 : difficulty === "hard" ? 5 : 3;
+      setStars(stars);
+    }
   };
 
   const shuffle = (array) => {
@@ -58,7 +59,7 @@ export default function Home() {
     }
     return array;
   };
-  
+
   const restart = () => {
     setCurrentIndex(0);
     setScore(0);
@@ -152,19 +153,27 @@ export default function Home() {
             )}
           </div>
           <br />
-          <div className="prog">
+          <div className="prog bg-gray-400 rounded px-2">
             <div className="progres1">
-              <p class="text-yellow-700 font-semibold flex justify-center">Score {userScore}</p>
+              <p
+                class=" font-semibold flex justify-center"
+                style={{ color: "yellow" }}
+              >
+                Score {userScore}
+              </p>
               <Progress score={userScore} color={"yellow"} />
             </div>
             <div className="progres2">
-              <p className="text-blue-500 font-semibold flex justify-end">
+              <p
+                className=" font-semibold flex justify-end"
+                style={{ color: "blue" }}
+              >
                 Max Score {maxScore}
               </p>
               <Progress score={maxScore} color={"blue"} />
             </div>
             <div className="progres3">
-              <p className="text-red-700 font-semibold  ">
+              <p className=" font-semibold  " style={{ color: "red" }}>
                 Min Score {minScore}
               </p>
               <Progress score={minScore} color={"red"} />
