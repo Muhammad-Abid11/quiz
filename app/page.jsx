@@ -158,10 +158,10 @@ export default function Home() {
               <Progress score={userScore} color={"yellow"} />
             </div>
             <div className="progres2">
-              <p className="text-green-500 font-semibold flex justify-end">
+              <p className="text-blue-500 font-semibold flex justify-end">
                 Max Score {maxScore}
               </p>
-              <Progress score={maxScore} color={"green"} />
+              <Progress score={maxScore} color={"blue"} />
             </div>
             <div className="progres3">
               <p className="text-red-700 font-semibold  ">
