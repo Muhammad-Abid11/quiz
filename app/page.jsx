@@ -14,12 +14,20 @@ export default function Home() {
   const [isAnsCorrect, setIsAnsCorrect] = useState(false);
   const renderQuestion = question[currentIndex];
   const isLastQuestion = currentIndex === question.length;
-
+  let [category,setCategory]=useState()
+console.log('category-->',category)
   useEffect(() => {
-    const arr = [
+    let arr = [
       question[currentIndex].correct_answer,
       ...question[currentIndex].incorrect_answers,
     ];
+   arr = arr.map(item => decodeURIComponent(item));
+    
+   setCategory(decodeURIComponent(renderQuestion.category))
+
+
+
+
     const shuffledOptions = shuffle(arr);
     setQuestionOptions(shuffledOptions);
 
@@ -34,14 +42,19 @@ export default function Home() {
 
     setCurrentIndex(currentIndex + 1);
     if (currentIndex !== question.length - 1) {
-      const arr = [
+      let arr = [
         question[currentIndex + 1]?.correct_answer,
         ...question[currentIndex + 1]?.incorrect_answers,
       ];
+
+   arr = arr.map(item => decodeURIComponent(item));
+   setCategory(decodeURIComponent(renderQuestion.category))
+
+
       const shuffledOptions = shuffle(arr);
       setQuestionOptions(shuffledOptions);
       const difficulty = question[currentIndex + 1].difficulty;
-      const stars = difficulty === "easy" ? 1 : difficulty === "hard" ? 5 : 3;
+      const stars = difficulty === "easy" ? 1 : difficulty === "hard" ? 3 : 2;
       setStars(stars);
     }
   };
@@ -106,6 +119,7 @@ export default function Home() {
           </div>
           {!isLastQuestion ? (
             <SingleQuestionForm
+            category={category}
               ansCheck={ansCheck}
               selectAns={selectAns}
               questionOptions={questionOptions}

@@ -2,14 +2,14 @@ import React from 'react'
 import StarRating from "./stars";
 
 
-export default function SingleQuestionForm({ansCheck,selectAns,currentIndex,question,stars,decodedQuestion,questionOptions}) {
+export default function SingleQuestionForm({category,ansCheck,selectAns,currentIndex,question,stars,decodedQuestion,questionOptions}) {
   return (
 <div>
           <div>
             <h1 className="text-3xl">
               Qestion {currentIndex + 1} of {question}
             </h1>
-            <p>Entertainment: Board Games</p>
+            <p>{category}</p>
             <StarRating difficulty={stars} />
           </div>
           <div className="flex justify-center w-30 text-2xl max-w-xl">

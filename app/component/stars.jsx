@@ -18,7 +18,7 @@ function StarRating({ difficulty }) {
 
   const renderStars = () => {
     let stars = [];
-    const totalStars = 5;
+    const totalStars = 3;
 
     for (let i = 1; i <= totalStars; i++) {
       if (i <= difficulty) {
